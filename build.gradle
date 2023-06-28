@@ -1,0 +1,20 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url './repo'
+        }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle.sdk.gradleBuildPlugin"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$gradle.sdk.kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}

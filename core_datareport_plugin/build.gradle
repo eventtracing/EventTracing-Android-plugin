@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation gradleApi()
+    implementation "com.android.tools.build:gradle:$gradle.sdk.gradleBuildPlugin"
+    implementation 'org.json:json:20160212'
+    implementation 'org.codehaus.groovy:groovy:2.4.7'
+    implementation 'com.squareup:javapoet:1.8.0'
+    implementation 'com.android.tools.build:transform-api:1.5.0'
+    implementation 'commons-io:commons-io:2.4'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo/'))
+            pom.groupId = MAVEN_GROUP
+            pom.artifactId = MAVEN_PLUGIN_NAME
+            pom.version = MAVEN_PLUGIN_VERSION
+        }
+    }
+}
